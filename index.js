@@ -2,6 +2,9 @@ const express = require('express')
 const TaskRouter = require('./src/routes/taskRouter')
 const mongoose = require('mongoose');
 const UserRouter = require("./src/routes/userRouter")
+
+require("dotenv").config()
+
 var cors = require('cors')
 
 var corsOptions = {
@@ -9,10 +12,11 @@ var corsOptions = {
 }
 
 const app = express()
-const port = 3000
+const port = process.env.PORT
+const DB_CONNECTION_LINK = process.env.DB_CONNECTION_LINK
 
 
-mongoose.connect('mongodb+srv://nidheeshb:9XEadEWqyz5AXbTn@main.rzali.mongodb.net/?retryWrites=true&w=majority&appName=main')
+mongoose.connect(DB_CONNECTION_LINK)
 .then(()=>{
   console.log("DB connected")
 })
