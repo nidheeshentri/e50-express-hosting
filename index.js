@@ -8,7 +8,7 @@ require("dotenv").config()
 var cors = require('cors')
 
 var corsOptions = {
-  origin: 'http://localhost:5173'
+  origin: 'https://e50-react-host.vercel.app'
 }
 
 const app = express()
